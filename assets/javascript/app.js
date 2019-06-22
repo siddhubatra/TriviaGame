@@ -5,17 +5,14 @@ $(document).ready(function () {
 var questionCounter = 0;
 
 function wrongAnswer(num) {
-    // if (num === 1) {
-    //     console.log("inside wrong answer 1");
-    //     $("#quiz").hide();
-    //     $("#userResponse").text("Sorry, bud - that's not the right answer!")
-    //     $("#rightAnswer").text("The correct answer is C, Bolt.");
-    //     $("img").attr("src", "https://i.gifer.com/RU6Z.gif");
-    //     setTimeout(question2, 3000);
-    // }
-    // else 
+    if (num === 1) {
+        $("#quiz").hide();
+        $("#userResponse").text("Sorry, bud - that's not the right answer!")
+        $("#rightAnswer").text("The correct answer is C, Bolt.");
+        $("img").attr("src", "https://i.gifer.com/RU6Z.gif");
+        setTimeout(question2, 3000);
+    }
     if (num === 2) {
-        console.log("inside wrong answer 2");
         setTimeout(question3, 3000);
         $("#quiz").hide();
         $("#userResponse").text("Sorry, bud - that's not the right answer!")
@@ -23,8 +20,7 @@ function wrongAnswer(num) {
         $("img").attr("src", "https://media.giphy.com/media/3o6gDWzmAzrpi5DQU8/giphy.gif");
         $("#results").show();
     }
-    else if (num == 3) {
-        console.log("inside wrong answer 3");
+    if (num == 3) {
         setTimeout(question4, 3000);
         $("#quiz").hide();
         $("#userResponse").text("Sorry, bud - that's not the right answer!")
@@ -32,7 +28,7 @@ function wrongAnswer(num) {
         $("img").attr("src", "https://media.giphy.com/media/tN2OR1R1BLKV2/giphy.gif");
         $("#results").show();
     }
-    else if (num == 4) {
+    if (num == 4) {
         // clearTimeout(timeout);
         console.log("inside wrong answer 4");
         $("#quiz").hide();
@@ -45,7 +41,6 @@ function wrongAnswer(num) {
 
 function rightAnswer(num) {
     if (num == 1) {
-        console.log("inside right answer 1");
         setTimeout(question2, 3000);
         $("#quiz").hide();
         $("#userResponse").text("Great job, holmes - that's indeed the right answer!")
@@ -54,7 +49,6 @@ function rightAnswer(num) {
         $("#results").show();
     }
     else if (num == 2) {
-        console.log("inside right answer 2");
         setTimeout(question3, 3000);
         $("#quiz").hide();
         $("#userResponse").text("Great job, holmes - that's indeed the right answer!")
@@ -63,7 +57,6 @@ function rightAnswer(num) {
         $("#results").show();
     }
     else if (num == 3) {
-        console.log("inside right answer 3");
         setTimeout(question4, 3000);
         $("#quiz").hide();
         $("#userResponse").text("Great job, holmes - that's indeed the right answer!")
@@ -72,8 +65,6 @@ function rightAnswer(num) {
         $("#results").show();
     }
     else if (num == 4) {
-        console.log("inside right answer 4");
-        // clearTimeout(timeout);
         $("#quiz").hide();
         $("#userResponse").text("Great job, holmes - that's indeed the right answer!")
         $("#rightAnswer").empty();
@@ -133,7 +124,6 @@ function question4() {
 
 function timeOut(num) {
     if (num == 1) {
-        console.log("question 1 timeout!")
         setTimeout(question2, 3000);
         $("#quiz").hide();
         $("#userResponse").empty();
@@ -142,7 +132,6 @@ function timeOut(num) {
         $("img").attr("src", "https://i.gifer.com/RU6Z.gif");
     }
     else if (num == 2) {
-        console.log("question 2 timeout!")
         setTimeout(question3, 3000);
         $("#quiz").hide();
         $("#userResponse").empty();
@@ -152,7 +141,6 @@ function timeOut(num) {
         $("#results").show();
     }
     else if (num == 3) {
-        console.log("question 3 timeout!")
         setTimeout(question4, 3000);
         $("#quiz").hide();
         $("#userResponse").empty();
@@ -162,7 +150,6 @@ function timeOut(num) {
         $("#results").show();
     }
     else if (num == 4) {
-        // clearTimeout(timeout);
         console.log("question 4 timeout!")
         $("#quiz").hide();
         $("#userResponse").empty();
@@ -178,16 +165,13 @@ function timer() {
     var timeLeft = 4;
     var elem = $("#timeRemaining");
     timerId = setInterval(countdown, 1000);
-    console.log("THIS IS THE QUESTIONCOUNTER", questionCounter)
     $("button").on("click", function () { clearInterval(timerId) });
     function countdown() {
         if (timeLeft == 0) {
             clearInterval(timerId);
-            console.log("THIS IS THE QUESTIONCOUNTER", questionCounter)
             timeOut(questionCounter);
         } else {
             elem.text(timeLeft + " seconds remaining");
-            console.log("time left is ", timeLeft);
             timeLeft--;
         }
     }
